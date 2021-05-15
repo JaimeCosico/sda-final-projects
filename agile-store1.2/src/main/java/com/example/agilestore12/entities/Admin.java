@@ -19,4 +19,9 @@ public class Admin {
     private long id;
     private String userName;
     private String userEmail;
+
+    public Admin(String userName, String userEmail) {
+        this.userName = userName;
+        this.userEmail = userEmail;
+    }
 }

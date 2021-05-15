@@ -16,4 +16,9 @@ public class Users {
     private long id;
     private String userName;
     private String userEmail;
+
+    public Users(String userName, String userEmail) {
+        this.userName = userName;
+        this.userEmail = userEmail;
+    }
 }
