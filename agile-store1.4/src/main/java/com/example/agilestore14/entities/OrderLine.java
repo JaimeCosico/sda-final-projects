@@ -1,4 +1,4 @@
-package com.example.agilestore13.entities;
+package com.example.agilestore14.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,11 +13,11 @@ public class OrderLine {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private long id;
-    @OneToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Product product;
     private long numberOfProducts;
     private double numberOfProductsPrice;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Orders orders;
 
     public OrderLine(Product product, long numberOfProducts, double numberOfProductsPrice, Orders orders) {

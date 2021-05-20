@@ -1,4 +1,4 @@
-package com.example.agilestore13.entities;
+package com.example.agilestore14.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,4 +17,10 @@ public class Users {
     private String userFullName;
     private String userEmail;
     private Enum role;
+
+    public Users(String userFullName, String userEmail, Enum role) {
+        this.userFullName = userFullName;
+        this.userEmail = userEmail;
+        this.role = role;
+    }
 }

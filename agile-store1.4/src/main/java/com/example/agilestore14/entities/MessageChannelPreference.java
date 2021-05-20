@@ -1,4 +1,4 @@
-package com.example.agilestore13.entities;
+package com.example.agilestore14.entities;
 
 public enum MessageChannelPreference {
     STANDARD_MAIL,

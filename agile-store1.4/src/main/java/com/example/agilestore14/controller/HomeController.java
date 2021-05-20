@@ -1,4 +1,4 @@
-package com.example.agilestore13.controller;
+package com.example.agilestore14.controller;
 
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;

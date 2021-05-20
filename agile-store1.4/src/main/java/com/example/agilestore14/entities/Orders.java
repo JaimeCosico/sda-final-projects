@@ -1,4 +1,4 @@
-package com.example.agilestore13.entities;
+package com.example.agilestore14.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,7 +19,7 @@ public class Orders {
     private String deliveryAddress;
     private String userAddress;
     private LocalDate dateOfSubmission;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Users users;
     @Enumerated(EnumType.STRING)
     private Status status;

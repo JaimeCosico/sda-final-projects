@@ -1,13 +1,10 @@
-package com.example.agilestore13.entities;
+package com.example.agilestore14.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Data
 @AllArgsConstructor
@@ -19,9 +16,12 @@ public class Admin {
     private long id;
     private String userName;
     private String userEmail;
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
-    public Admin(String userName, String userEmail) {
+    public Admin(String userName, String userEmail, Role role) {
         this.userName = userName;
         this.userEmail = userEmail;
+        this.role = role;
     }
 }

@@ -1,7 +1,7 @@
-package com.example.agilestore13.services;
+package com.example.agilestore14.services;
 
-import com.example.agilestore13.entities.Author;
-import com.example.agilestore13.repositories.AuthorRepository;
+import com.example.agilestore14.entities.Author;
+import com.example.agilestore14.repositories.AuthorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

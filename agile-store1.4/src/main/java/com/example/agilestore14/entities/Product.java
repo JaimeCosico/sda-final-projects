@@ -1,4 +1,4 @@
-package com.example.agilestore13.entities;
+package com.example.agilestore14.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,12 +16,12 @@ public class Product {
     private String productTitle;
     private String productDescription;
     private String thumbnailUrl;
-    @OneToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Category category;
     private double price;
     @Enumerated(EnumType.STRING)
     private ProductType productType;
-    @OneToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Author author;
     private String edition;
 

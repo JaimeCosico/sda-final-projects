@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>agile-store1.0</artifactId>
+	<artifactId>agile-store1.4</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>agile-store1.0</name>
+	<name>agile-store1.4</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>1.8</java.version>
