@@ -1,4 +1,4 @@
-package com.example.agilestore13.controller;
+ /* package com.example.agilestore13.controller;
 
 import com.example.agilestore13.entities.Product;
 import com.example.agilestore13.services.ProductService;
@@ -24,4 +24,4 @@ public class ProductController {
     public List<Product> showAllProducts(){
         return productService.showAllProducts();
     }
-}
+}*/
