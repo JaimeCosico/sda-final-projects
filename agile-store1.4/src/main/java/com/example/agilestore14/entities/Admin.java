@@ -20,15 +20,15 @@ public class Admin {
     private String adminFirstName;
     @NotEmpty(message="Email is required.")
     @Email(message="Email should be valid.")
-    private String userEmail;
+    private String adminEmail;
     @NotEmpty(message="Please select a role.")
     @Enumerated(EnumType.STRING)
     private Role role;
 
-    public Admin(String adminLastName, String adminFirstName, String userEmail, Role role) {
+    public Admin(String adminLastName, String adminFirstName, String adminEmail, Role role) {
         this.adminLastName = adminLastName;
         this.adminFirstName = adminFirstName;
-        this.userEmail = userEmail;
+        this.adminEmail = adminEmail;
         this.role = role;
     }
 }

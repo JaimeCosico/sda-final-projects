@@ -1,5 +1,6 @@
 package com.example.agilestore14.services;
 
+import com.example.agilestore14.entities.Role;
 import com.example.agilestore14.entities.Users;
 import org.springframework.stereotype.Service;
 import java.security.SecureRandom;
@@ -20,7 +21,7 @@ public class UserService {
         users.setUserLastname(newUsers.getUserLastname());
         users.setUserFirstname(newUsers.getUserFirstname());
         users.setUserEmail(newUsers.getUserEmail());
-        users.setRole(newUsers.getRole());
+        users.setRole(Role.USER);
         usersMap.put(users.getId(),users);
         return users;
     }
