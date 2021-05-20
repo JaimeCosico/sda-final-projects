@@ -1,7 +1,7 @@
- /* package com.example.agilestore13.controller;
+/*package com.example.agilestore14.controller;
 
-import com.example.agilestore13.entities.Product;
-import com.example.agilestore13.services.ProductService;
+import com.example.agilestore14.entities.Product;
+import com.example.agilestore14.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;

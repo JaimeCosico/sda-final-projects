@@ -17,7 +17,8 @@ public class UserService {
     public Users addNewUsers(Users newUsers){
         Users users=new Users();
         users.setId(Long.parseLong(String.valueOf(Math.abs(secureRandom.nextInt()))));
-        users.setUserFullName(newUsers.getUserFullName());
+        users.setUserLastname(newUsers.getUserLastname());
+        users.setUserFirstname(newUsers.getUserFirstname());
         users.setUserEmail(newUsers.getUserEmail());
         users.setRole(newUsers.getRole());
         usersMap.put(users.getId(),users);

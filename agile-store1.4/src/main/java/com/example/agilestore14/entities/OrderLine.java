@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Data
 @AllArgsConstructor
@@ -15,6 +17,7 @@ public class OrderLine {
     private long id;
     @ManyToOne(cascade = CascadeType.ALL)
     private Product product;
+    @NotEmpty(message="Product quantity is required.")
     private long numberOfProducts;
     private double numberOfProductsPrice;
     @ManyToOne(cascade = CascadeType.ALL)
