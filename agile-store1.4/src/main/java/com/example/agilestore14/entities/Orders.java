@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 @Data
@@ -22,11 +21,13 @@ public class Orders {
     private double totalCost;
     @NotEmpty(message="Delivery address is required.")
     private String deliveryAddress;
-    @NotEmpty(message="Delivery address is required")
+    @NotEmpty(message="Home address is required")
     private String userAddress;
+    @JsonFormat(pattern="yyy-mm-dd")
     private LocalDate dateOfSubmission;
     @ManyToOne(cascade = CascadeType.ALL)
     private Users users;
+    @NotEmpty(message="Please select status.")
     @Enumerated(EnumType.STRING)
     private Status status;
 

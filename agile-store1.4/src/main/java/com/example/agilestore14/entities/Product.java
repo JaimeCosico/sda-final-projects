@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 
 @Data
 @AllArgsConstructor
@@ -13,24 +14,30 @@ public class Product {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private long id;
+    @NotEmpty(message="Product title is required.")
     private String productTitle;
+    @NotEmpty(message="Product description is required.")
     private String productDescription;
+    @NotEmpty(message="Thumbnail Url is required.")
     private String thumbnailUrl;
     @ManyToOne(cascade = CascadeType.ALL)
     private Category category;
-    private double price;
+    @NotEmpty(message="Unit price is required.")
+    private double unitPrice;
+    @NotEmpty(message="Please select a product type")
     @Enumerated(EnumType.STRING)
     private ProductType productType;
     @ManyToOne(cascade = CascadeType.ALL)
     private Author author;
+    @NotEmpty(message="Product edition/generation/version is required.")
     private String edition;
 
-    public Product(String productTitle, String productDescription, String thumbnailUrl, Category category, double price, ProductType productType, Author author, String edition) {
+    public Product(String productTitle, String productDescription, String thumbnailUrl, Category category, double unitPrice, ProductType productType, Author author, String edition) {
         this.productTitle = productTitle;
         this.productDescription = productDescription;
         this.thumbnailUrl = thumbnailUrl;
         this.category = category;
-        this.price = price;
+        this.unitPrice = unitPrice;
         this.productType = productType;
         this.author = author;
         this.edition = edition;
