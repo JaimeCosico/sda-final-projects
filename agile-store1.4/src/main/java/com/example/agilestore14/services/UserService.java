@@ -21,7 +21,7 @@ public class UserService {
         users.setUserLastname(newUsers.getUserLastname());
         users.setUserFirstname(newUsers.getUserFirstname());
         users.setUserEmail(newUsers.getUserEmail());
-        users.setRole(Role.USER);
+        users.setUserAccount(newUsers.getUserAccount());
         usersMap.put(users.getId(),users);
         return users;
     }

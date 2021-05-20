@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -14,12 +15,16 @@ public class OrderLine {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private long id;
-    @ManyToOne(cascade = CascadeType.ALL)
+
+    @OneToOne(cascade = CascadeType.ALL,orphanRemoval = true)
+    @PrimaryKeyJoinColumn
     private Product product;
+
     @NotEmpty(message="Product quantity is required.")
     private long numberOfProducts;
     private double numberOfProductsPrice;
-    @ManyToOne(cascade = CascadeType.ALL)
+
+    @ManyToOne
     private Orders orders;
 
     public OrderLine(Product product, long numberOfProducts, double numberOfProductsPrice, Orders orders) {
