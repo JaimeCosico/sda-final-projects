@@ -48,7 +48,7 @@
 .main{
     background-size:cover;
     height: 100vh;
-    background: url(./BackgroundImage.jpeg) no-repeat 50% 50%;
+    background: url(./BackgroundImage3.jpeg)no-repeat 50%, 50%;
     width: 100%;
 }
 
