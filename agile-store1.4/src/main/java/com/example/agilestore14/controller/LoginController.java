@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class LoginController
 {
     @GetMapping("/login")
-    public String showloginPage(){
+    public String showLoginPage(){
         Authentication authentication= SecurityContextHolder.getContext().getAuthentication();
         if(authentication==null || authentication instanceof AnonymousAuthenticationToken){
             return "login";

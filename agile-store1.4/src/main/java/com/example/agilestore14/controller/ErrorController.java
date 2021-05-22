@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @ControllerAdvice
 public class ErrorController {
 
-    private static Logger logger = LoggerFactory.getLogger(ErrorController.class);
+    /*private static Logger logger = LoggerFactory.getLogger(ErrorController.class);
 
     @ExceptionHandler(Throwable.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
@@ -21,6 +21,6 @@ public class ErrorController {
         String errorMessage = (throwable != null ? throwable.getMessage() : "Unknown error");
         model.addAttribute("errorMessage", errorMessage);
         return errorMessage;
-    }
+    }*/
 
 }
