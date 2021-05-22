@@ -16,7 +16,7 @@ public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .formLogin()
-                .loginPage("/login.html")
+                .loginPage("/login")
                 .failureUrl("/login-error.html")
             .and()
                 .logout()
