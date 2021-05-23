@@ -1,13 +1,9 @@
 package com.example.agilestore14.form;
-import com.example.agilestore14.entities.MessageChannelPreference;
-import com.example.agilestore14.entities.Orders;
-import com.example.agilestore14.entities.UserAccount;
-import com.example.agilestore14.entities.Users;
+import com.example.agilestore14.entities.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import java.util.List;
 
@@ -21,7 +17,7 @@ public class UsersAccountForm {
     @NotEmpty
     private String password;
     @NotEmpty
-    private Enum role;
+    private Role role;
     @NotEmpty
     private String city;
     @NotEmpty
@@ -35,7 +31,7 @@ public class UsersAccountForm {
     @NotEmpty
     private List<Orders> orderList;
 
-    public UsersAccountForm(String username, String password, Enum role, String city, String address, String avatarUrl, MessageChannelPreference messageChannelPreference, Users user, List<Orders> orderList) {
+    public UsersAccountForm(String username, String password, Role role, String city, String address, String avatarUrl, MessageChannelPreference messageChannelPreference, Users user, List<Orders> orderList) {
         this.username = username;
         this.password = password;
         this.role = role;

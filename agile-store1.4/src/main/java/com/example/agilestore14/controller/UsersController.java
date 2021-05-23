@@ -24,7 +24,7 @@ public class UsersController {
 
     @PostMapping("/register")
     public String handleRegistrationForm(@Valid @ModelAttribute("UsersForm") final UsersForm usersForm, Users users) {
-        userService.save(users);
+        userService.save(userService.registerNewUser(users));
         return "registerNewUserSuccessful";
     }
 

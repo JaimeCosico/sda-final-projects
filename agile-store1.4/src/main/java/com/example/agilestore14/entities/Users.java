@@ -28,7 +28,7 @@ public class Users {
     private String userEmail;
 
     @OneToOne(cascade = CascadeType.ALL,orphanRemoval = true)
-    @PrimaryKeyJoinColumn
+    @JoinColumn(name="user_account_id",referencedColumnName = "id")
     private UserAccount userAccount;
 
     public Users(String userLastname, String userFirstname, String userEmail, UserAccount userAccount) {

@@ -20,7 +20,8 @@ public class UserAccount {
     private String password;
 
     @NotEmpty(message="Please select a role.")
-    private Enum role;
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
     @NotEmpty(message="City is required.")
     private String city;
@@ -35,15 +36,13 @@ public class UserAccount {
     @Enumerated(EnumType.STRING)
     private MessageChannelPreference messageChannelPreference;
 
-    @OneToOne
-    @MapsId
-    @JoinColumn(name="user_id")
+    @OneToOne(mappedBy ="userAccount")
     private Users user;
 
     @OneToMany(cascade = CascadeType.ALL,orphanRemoval = true )
     private List<Orders> orderList;
 
-    public UserAccount(String username, String password, Enum role, String city, String address, String avatarUrl, MessageChannelPreference messageChannelPreference, Users user, List<Orders> orderList) {
+    public UserAccount(String username, String password, Role role, String city, String address, String avatarUrl, MessageChannelPreference messageChannelPreference, Users user, List<Orders> orderList) {
         this.username = username;
         this.password = password;
         this.role = role;

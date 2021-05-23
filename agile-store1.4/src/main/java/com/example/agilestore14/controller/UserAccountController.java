@@ -4,6 +4,7 @@ import com.example.agilestore14.entities.UserAccount;
 import com.example.agilestore14.form.UsersAccountForm;
 import com.example.agilestore14.services.UserAccountService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
@@ -22,7 +23,10 @@ public class UserAccountController {
 
     @PostMapping("/register-1")
     public String handleRegistrationForm(@Valid @ModelAttribute("UsersAccountForm") final UsersAccountForm usersAccountForm, UserAccount userAccount) {
-        userAccountService.save(userAccount);
-        return "registerNewUserSuccessful";
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String encodedPassword = passwordEncoder.encode(userAccount.getPassword());
+        userAccount.setPassword(encodedPassword);
+        userAccountService.save(userAccountService.registerNewUserAccount(userAccount));
+        return "registerNewUserAccountSuccessful";
     }
 }
