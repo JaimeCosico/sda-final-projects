@@ -12,20 +12,38 @@
         <img src="branding-image" th:src="@{/BrandingName-01.svg}" height="300" width="300"/>
     </div>
     <div align="center">
-        <form class="registration-form-main" th:action="@{/register-1}" th:object="${Us}" method="post" >
+        <form class="registration-form-main" th:action="@{/register-1}" th:object="${UsersAccountForm}" method="post" >
             <div class="border border-secondary p-3 rounded">
                 <p>Agile Store Registration Form</p>
                 <p>
-                    <input type="hidden", name="id" class="form-control" th:field="*{}" required autofocus>
+                    <input type="hidden", name="id" class="form-control" placeholder="id" th:field="*{id}" required autofocus>
                 </p>
                 <p>
-                    <input type="text", name="firstname" class="form-control" placeholder="firstname" th:field="*{}" required autofocus>
+                    <input type="text", name="username" class="form-control" placeholder="username" th:field="*{username}" required autofocus>
                 </p>
                 <p>
-                    <input type="text", name="lastname" class="form-control" placeholder="lastname" th:field="*{}" required autofocus>
+                    <input type="text", name="password" class="form-control" placeholder="password" th:field="*{password}" required autofocus>
                 </p>
                 <p>
-                    <input type="text", name="email" class="form-control" placeholder="email" th:field="*{}" required autofocus>
+                    <select name="role" class="form-control" placeholder="role" th:field="*{role}" required autofocus>
+                        <option th:each="roleOpt:${T(com.example.agilestore15.entities.Role).values()}"
+                                th:value="${roleOpt}" th:text="${roleOpt}"></option>
+                    </select>
+                </p>
+                <p>
+                    <input type="text", name="city" class="form-control" placeholder="city" th:field="*{city}" required autofocus>
+                </p>
+                <p>
+                    <input type="text", name="address" class="form-control" placeholder="address" th:field="*{address}" required autofocus>
+                </p>
+                <p>
+                    <input type="text", name="avatarUrl" class="form-control" placeholder="url" th:field="*{avatarUrl}" required autofocus>
+                </p>
+                <p>
+                    <select name="role" class="form-control" placeholder="role" th:field="*{role}" required autofocus>
+                        <option th:each="messagePreferenceOpt:${T(com.example.agilestore15.entities.MessageChannelPreference).values()}"
+                                th:value="${messagePreferenceOpt}" th:text="${messagePreferenceOpt}"></option>
+                    </select>
                 </p>
                 <p>
                     <input type="submit" value="Register" class="btn btn-primary">
