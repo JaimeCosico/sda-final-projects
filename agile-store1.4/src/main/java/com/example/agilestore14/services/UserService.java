@@ -25,10 +25,12 @@ public class UserService {
     }
     //Shows all the users in the database
     public List<Users> showAllUsers() {
+
         return (List<Users>)userRepository.findAll();
     }
 
     public void save(Users users){
+
         userRepository.save(users);
     }
 }

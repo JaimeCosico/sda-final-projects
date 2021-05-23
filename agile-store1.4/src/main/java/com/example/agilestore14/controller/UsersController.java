@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
+import javax.validation.Valid;
 
 
 @Controller
@@ -22,9 +23,9 @@ public class UsersController {
     }
 
     @PostMapping("/register")
-    public String handleRegistrationForm(@ModelAttribute("UsersForm") final UsersForm usersForm, Users users) {
+    public String handleRegistrationForm(@Valid @ModelAttribute("UsersForm") final UsersForm usersForm, Users users) {
         userService.save(users);
-        return "registerNewUser";
+        return "registerNewUserSuccessful";
     }
 
     /*@GetMapping("/registration/view")

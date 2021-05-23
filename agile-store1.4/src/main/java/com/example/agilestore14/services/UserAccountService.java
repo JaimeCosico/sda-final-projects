@@ -4,7 +4,6 @@ import com.example.agilestore14.entities.UserAccount;
 import com.example.agilestore14.repositories.UserAccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
@@ -27,10 +26,11 @@ public class UserAccountService {
         return userAccount;
     }
     public List<UserAccount> showAllUserAccount() {
+
         return (List<UserAccount>)userAccountRepository.findAll();
     }
 
-    public void saveNewUserAccount(UserAccount userAccount){
+    public void save(UserAccount userAccount){
         userAccountRepository.save(userAccount);
     }
 }
