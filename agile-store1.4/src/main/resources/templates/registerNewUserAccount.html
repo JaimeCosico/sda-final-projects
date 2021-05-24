@@ -25,7 +25,7 @@
                     <input type="text", name="password" class="form-control" placeholder="password" th:field="*{password}" required autofocus>
                 </p>
                 <p>
-                    <select name="role" class="form-control" placeholder="role" th:field="*{role}" required autofocus>
+                    <select name="text" class="form-control" placeholder="role" th:field="*{role}" required autofocus>
                         <option th:each="roleOpt:${T(com.example.agilestore15.entities.Role).values()}"
                                 th:value="${roleOpt}" th:text="${roleOpt}"></option>
                     </select>
@@ -40,10 +40,13 @@
                     <input type="text", name="avatarUrl" class="form-control" placeholder="url" th:field="*{avatarUrl}" required autofocus>
                 </p>
                 <p>
-                    <select name="role" class="form-control" placeholder="role" th:field="*{role}" required autofocus>
+                    <select name="text" class="form-control" placeholder="role" th:field="*{messageChannelPreference}" required autofocus>
                         <option th:each="messagePreferenceOpt:${T(com.example.agilestore15.entities.MessageChannelPreference).values()}"
                                 th:value="${messagePreferenceOpt}" th:text="${messagePreferenceOpt}"></option>
                     </select>
+                </p>
+                <p>
+                    <input type="hidden", name="Users" class="form-control" placeholder="text" th:field="*{user}" required autofocus>
                 </p>
                 <p>
                     <input type="submit" value="Register" class="btn btn-primary">
