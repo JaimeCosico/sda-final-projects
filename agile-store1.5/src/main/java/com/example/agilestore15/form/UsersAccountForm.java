@@ -29,7 +29,7 @@ public class UsersAccountForm {
     @Size(min = 6, max = 85, message = "Length of Address should be in between 6 to 255")
     private String address;
     @NotEmpty
-    @Size(min = 6, max = 85, message = "Length of Address should be in between 6 to 255")
+    @Size(min = 6, max = 255, message = "Length of Address should be in between 6 to 255")
     private String avatarUrl;
     @NotNull(message="Please select a messaging preference.")
     private MessageChannelPreference messageChannelPreference;
