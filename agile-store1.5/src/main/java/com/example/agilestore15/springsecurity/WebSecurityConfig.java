@@ -1,5 +1,6 @@
 package com.example.agilestore15.springsecurity;
 
+import com.example.agilestore15.services.UserAccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,18 +16,17 @@ import javax.sql.DataSource;
 
 @Configuration
 @EnableWebSecurity
-public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter {
-
-    @Autowired
-    private DataSource dataSource;
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
-    public UserDetailsService userDetailsService(){
-        return new CustomUserDetailsService();
+    public UserDetailsService userDetailsService() {
+
+        return new UserAccountService();
     }
 
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
+
         return new BCryptPasswordEncoder();
     }
 
@@ -47,37 +47,17 @@ public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/users").authenticated()
-                .anyRequest().permitAll()
+                .antMatchers("/").hasAnyAuthority("USER", "CREATOR", "EDITOR", "ADMIN")
+                .antMatchers("/new").hasAnyAuthority("ADMIN", "CREATOR")
+                .antMatchers("/edit/**").hasAnyAuthority("ADMIN", "EDITOR")
+                .antMatchers("/delete/**").hasAuthority("ADMIN")
+                .anyRequest().authenticated()
                 .and()
-                .formLogin()
-                    .loginPage("/login")
-                    .usernameParameter("email")
-                    .defaultSuccessUrl("/users")
-                    .permitAll()
+                .formLogin().loginPage("/login").permitAll()
                 .and()
-                .logout().logoutSuccessUrl("/").permitAll();
+                .logout().permitAll()
+                .and()
+                .exceptionHandling().accessDeniedPage("/403");
     }
 }
-
-
-    /*@Override
-    protected void configure(HttpSecurity http)throws Exception{
-        http
-                .csrf().disable()
-                .formLogin()
-                .loginPage("/login")
-                .failureUrl("/login-error.html")
-            .and()
-                .logout()
-                .logoutSuccessUrl("/logout");
-        *//*http.csrf().disable();
-        http.authorizeRequests()
-
-                .antMatchers("/admin").hasRole("ADMIN")
-                .antMatchers("/user").hasAnyRole("ADMIN","USER")
-                .antMatchers("/","/Login").permitAll()
-                .and().formLogin()
-                      .loginPage("/login.html");*//*
-    }*/
 

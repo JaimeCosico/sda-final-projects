@@ -1,25 +1,34 @@
 package com.example.agilestore15.springsecurity;
 
+import com.example.agilestore15.entities.Role;
 import com.example.agilestore15.entities.UserAccount;
-import com.example.agilestore15.entities.Users;
 import org.springframework.security.core.GrantedAuthority;
-
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
+import java.util.Set;
 
-public class CustomUserDetails implements UserDetails {
+public class SecurityUserDetails implements UserDetails {
 
-    private Users users;
     private UserAccount userAccount;
 
-    public CustomUserDetails(Users users){
-        this.users=users;
+    public SecurityUserDetails(UserAccount userAccount) {
+        this.userAccount = userAccount;
     }
 
     @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+    public Collection<? extends GrantedAuthority>getAuthorities(){
+        Set<Role> roles = userAccount.getRoles();
+        List<SimpleGrantedAuthority> authorities = new ArrayList<>();
+
+        for (Role role : roles) {
+            authorities.add(new SimpleGrantedAuthority(role.getName()));
+        }
+
+        return authorities;
     }
 
     @Override
@@ -49,10 +58,7 @@ public class CustomUserDetails implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return true;
-    }
 
-    public String getFullName(){
-        return users.getUserFirstname()+" "+users.getUserLastname();
+        return userAccount.isEnabled();
     }
 }
