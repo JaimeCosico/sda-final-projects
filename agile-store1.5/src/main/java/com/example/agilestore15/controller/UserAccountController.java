@@ -1,7 +1,10 @@
 package com.example.agilestore15.controller;
 
+import com.example.agilestore15.entities.Users;
 import com.example.agilestore15.form.UsersAccountForm;
+import com.example.agilestore15.form.UsersForm;
 import com.example.agilestore15.services.UserAccountService;
+import com.example.agilestore15.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -14,8 +17,11 @@ public class UserAccountController {
     @Autowired
     UserAccountService userAccountService;
 
+    @Autowired
+    UserService userService;
+
     @GetMapping("/register-1")
-    public String showRegistrationForm(final ModelMap modelMap){
+    public String showRegistrationForm(final ModelMap modelMap, UsersForm users){
         modelMap.addAttribute("UsersAccountForm",new UsersAccountForm());
         return "registerNewUserAccount";
     }

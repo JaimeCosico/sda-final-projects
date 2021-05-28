@@ -21,7 +21,7 @@ public class UserAccount {
     private String username;
 
     @NotEmpty
-    @Size(min = 6, max = 20, message = "Length of password should be in between 6 to 20")
+    @Size(min = 6, max = 255, message = "Length of password should be in between 6 to 255")
     private String password;
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
@@ -56,5 +56,16 @@ public class UserAccount {
 
     private boolean enabled;
 
-
+    public UserAccount(String username, String password, Set<Role> roles, String city, String address, String avatarUrl, MessageChannelPreference messageChannelPreference, Users user, List<Orders> orderList, boolean enabled) {
+        this.username = username;
+        this.password = password;
+        this.roles = roles;
+        this.city = city;
+        this.address = address;
+        this.avatarUrl = avatarUrl;
+        this.messageChannelPreference = messageChannelPreference;
+        this.user = user;
+        this.orderList = orderList;
+        this.enabled = enabled;
+    }
 }

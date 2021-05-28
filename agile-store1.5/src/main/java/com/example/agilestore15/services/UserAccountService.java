@@ -39,7 +39,7 @@ public class UserAccountService implements UserDetailsService {
         userAccount.setId(Long.parseLong(String.valueOf(Math.abs(secureRandom.nextInt()))));
         userAccount.setUsername(newUserAccount.getUsername());
         userAccount.setPassword(newUserAccount.getPassword());
-        userAccount.setRoles((Set<Role>) newUserAccount.getRole());
+        userAccount.setRoles(newUserAccount.getRoles());
         userAccount.setCity(newUserAccount.getCity());
         userAccount.setAddress(newUserAccount.getAddress());
         userAccount.setAvatarUrl(newUserAccount.getAvatarUrl());
