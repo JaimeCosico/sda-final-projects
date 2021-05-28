@@ -45,6 +45,7 @@ public class UserAccountService implements UserDetailsService {
         userAccount.setAvatarUrl(newUserAccount.getAvatarUrl());
         userAccount.setMessageChannelPreference(newUserAccount.getMessageChannelPreference());
         userAccount.setUser(newUserAccount.getUser());
+        userAccount.setEnabled(newUserAccount.isEnabled());
         return userAccount;
     }
 

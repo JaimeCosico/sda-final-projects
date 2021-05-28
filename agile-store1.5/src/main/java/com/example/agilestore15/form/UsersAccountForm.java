@@ -3,6 +3,7 @@ import com.example.agilestore15.entities.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -37,7 +38,7 @@ public class UsersAccountForm {
     private MessageChannelPreference messageChannelPreference;
     private Users user;
     private List<Orders> orderList;
-    private boolean enabled;
+    private boolean enabled=true;
 
     public UsersAccountForm(String username, String password, Set<Role> roles, String city, String address, String avatarUrl, MessageChannelPreference messageChannelPreference, Users user, List<Orders> orderList, boolean enabled) {
         this.username = username;

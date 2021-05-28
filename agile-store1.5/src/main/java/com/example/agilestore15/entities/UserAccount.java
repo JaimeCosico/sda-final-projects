@@ -3,6 +3,8 @@ package com.example.agilestore15.entities;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Type;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -48,12 +50,17 @@ public class UserAccount {
     @Enumerated(EnumType.STRING)
     private MessageChannelPreference messageChannelPreference;
 
-    @OneToOne(mappedBy ="userAccount")
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "users_account_user",
+            joinColumns = @JoinColumn(name = "user_account_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id")
+    )
     private Users user;
 
     @OneToMany(cascade = CascadeType.ALL,orphanRemoval = true )
     private List<Orders> orderList;
-
+    @Column(name="enabled", columnDefinition = "BOOLEAN")
     private boolean enabled;
 
     public UserAccount(String username, String password, Set<Role> roles, String city, String address, String avatarUrl, MessageChannelPreference messageChannelPreference, Users user, List<Orders> orderList, boolean enabled) {
