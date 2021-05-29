@@ -1,27 +1,18 @@
-/*package com.example.agilestore14.controller;
+package com.example.agilestore15.controller;
 
-import com.example.agilestore14.entities.Product;
-import com.example.agilestore14.services.ProductService;
+
+import com.example.agilestore15.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.PostMapping;
 
-import java.util.List;
-
-@RestController
+@Controller
 public class ProductController {
     @Autowired
     ProductService productService;
 
-    @PostMapping("/product/create_new")
-    public Product addProduct(@RequestBody Product product){
-        return productService.addNewProduct(product);
+    @GetMapping("/product/store")
+    public String showProductsCart(){
+        return "product-store";
     }
-
-    @GetMapping("/product/view_all")
-    public List<Product> showAllProducts(){
-        return productService.showAllProducts();
-    }
-}*/
+}
