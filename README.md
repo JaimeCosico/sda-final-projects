@@ -9,7 +9,7 @@
   <h2>Implementations:</h2>
 <li> Users are classified into different roles: Admin, Seller and Buyer.</li>
 <li> Spring JPA security is implemented.</li>
-<li> login and logout page are implemented.</li>
+<li> login and logout pages are implemented.</li>
 </ul>
  
 <ul>
