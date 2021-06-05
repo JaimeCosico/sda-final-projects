@@ -1,8 +1,9 @@
-# sda-final-projects
-This is my final project with SDA
 
 <h1>Project Description:</h1>
-E-Commerce Platform, AgileStore
+<ul>
+  <li>It is an E-Commerce platform.
+  <li>It is made using Java, Java Spring Boot, JPA Data, MySQL, Thymeleaf, HTML5 and CSS3.   
+</ul>  
 
 <ul>
   <h2>Implementations:</h2>
@@ -10,7 +11,7 @@ E-Commerce Platform, AgileStore
 <li> Spring JPA security is implemented.</li>
 <li> login and logout page are implemented.</li>
 </ul>
-
+ 
 <ul>
   <h2>Future Implementations:</h2>
 <li> 1.6 Admin Dashboard</li>
