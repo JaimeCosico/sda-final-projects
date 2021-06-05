@@ -9,9 +9,10 @@ Implementations:
 -Spring JPA security is implemented.
 -login and logout page are implemented.
 
-Future Implementations:
--1.6 Admin Dashboard
--1.6 Seller's dashboard
--1.7 Product Gallery
--1.8 Buyer's dashboard and cart.
+<ul>Future Implementations:
+<li>-1.6 Admin Dashboard</li>
+<li>-1.6 Seller's dashboard</li>
+<li>-1.7 Product Gallery</li>
+<li>-1.8 Buyer's dashboard and cart.</li>
 -1.9 Invoice and payment gateway integration.
+</ul>
