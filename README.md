@@ -4,13 +4,15 @@ This is my final project with SDA
 <h1>Project Description:</h1>
 E-Commerce Platform, AgileStore
 
-<ul>Implementations:
+<ul>
+  <h2>Implementations:</h2>
 <li> Users are classified into different roles: Admin, Seller and Buyer.</li>
 <li> Spring JPA security is implemented.</li>
 <li> login and logout page are implemented.</li>
 </ul>
 
-<ul>Future Implementations:
+<ul>
+  <h2>Future Implementations:</h2>
 <li> 1.6 Admin Dashboard</li>
 <li> 1.6 Seller's dashboard</li>
 <li> 1.7 Product Gallery</li>
